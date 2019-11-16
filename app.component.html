@@ -1,0 +1,38 @@
+<div class="row justify-content-center">
+
+  <div class="container" style="width: 500px;">
+
+    <h3>1] Angular Multiselect Dropdown</h3> <br>
+
+    <span style="color:red;"><strong>Npm cmd: </strong>npm i ng-multiselect-dropdown-angular7 --save </span> <br>
+    <a target="_blank" href="https://www.npmjs.com/package/ng-multiselect-dropdown-angular7">Read more..</a>
+    <br>
+    <br>    
+    <!-- multi-select dropdown -->
+    <ng-multiselect-dropdown-angular7 
+             [placeholder]="'-- Select Cities --'" 
+             [data]="dropdownListData"
+             [settings]="dropdownSettings" 
+             (onSelect)="onItemSelect($event)" 
+             (onSelectAll)="onSelectAll($event)">
+    </ng-multiselect-dropdown-angular7>
+
+    <!-- [(ngModel)]="selectedItems"  -->
+  </div>
+</div>
+<br>
+<!-- to display selected items from dropdownlist -->
+<div class="row justify-content-left">
+  <div class="container" style="width: 1000px;">
+       <ul *ngFor="let item of selectedItems">
+             <li> {{item.item_text}} </li>
+       </ul>
+<br>
+<br>
+
+<!-- modal pop-up dialog  -->
+    <h3>2] Angular Modal Dialog Pop-Up</h3> <br>
+      <app-model-pop-up></app-model-pop-up>
+    
+  </div>
+</div>
