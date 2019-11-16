@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-    selector: 'app-root',
-    templateUrl: './app.component.html',
-    styleUrls: ['./app.component.css']
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
 })
 
 export class AppComponent implements OnInit {
@@ -14,11 +14,14 @@ export class AppComponent implements OnInit {
   selectedItems = [];
   dropdownSettings = {};
 
+   selectSingleItem=false; 
+   selectAllItem=false;
+
+
   // set the placeholder to MultiSelect input element
   public initialLabel: string = 'Select States';
 
   constructor() {
-
   }
 
   ngOnInit() {
@@ -33,7 +36,7 @@ export class AppComponent implements OnInit {
       { item_id: 8, item_text: 'Agartala' }
     ];
 
-    // default selected
+    // default selected -Not needed 
     // this.selectedItems = [
     //   { item_id: 3, item_text: 'Pune' },
     //   { item_id: 4, item_text: 'Navsari' }
@@ -51,15 +54,27 @@ export class AppComponent implements OnInit {
 
   }
 
-  onItemSelect(item: any) {
-    debugger;
-    this.selectedItems.push(item);
+  //to bind single selected item to Dom list
+  onItemSelect(item: any) {           
+    this.selectedItems.push(item);        
   }
 
-    onSelectAll(items: any) {
-    debugger;
-     
-    
+  //to bind all items to Dom list in one shot
+  onSelectAll(items: any)
+   {
+    let mylist = items;
+
+    for (let item of mylist) 
+    {
+        this.selectedItems.push(item);
+    }
   }
+
+  // to clear dom list on 'unSelectAll' / 'DropdownClose'
+onDropDownClose(item:any)
+{
+
+}
+
 
 }

@@ -14,7 +14,8 @@
              [data]="dropdownListData"
              [settings]="dropdownSettings" 
              (onSelect)="onItemSelect($event)" 
-             (onSelectAll)="onSelectAll($event)">
+             (onSelectAll)="onSelectAll($event)"
+             (onDropDownClose)="onDropDownClose()">
     </ng-multiselect-dropdown-angular7>
 
     <!-- [(ngModel)]="selectedItems"  -->
@@ -24,9 +25,11 @@
 <!-- to display selected items from dropdownlist -->
 <div class="row justify-content-left">
   <div class="container" style="width: 1000px;">
+    <div *ngIf="selectedItems !== 'null'">    
        <ul *ngFor="let item of selectedItems">
              <li> {{item.item_text}} </li>
        </ul>
+      </div>
 <br>
 <br>
 
